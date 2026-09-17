@@ -17,6 +17,7 @@ jobs:
         run: |
           python scripts/build_site.py
           python scripts/make_cards_clickable.py
+          python scripts/create_preview.py
           python scripts/maintenance_mode.py
 
       - name: Deploy to Hostinger via FTP
