@@ -4,6 +4,17 @@ import re
 path = Path("index.html")
 s = path.read_text(encoding="utf-8")
 
+# Use a more direct, personal hero description.
+s = s.replace(
+    '''          <p class="hero-description">
+            Network engineer focused on secure, reliable and scalable network architectures.
+            I document labs, troubleshooting cases and what I learn along the way.
+          </p>''',
+    '''          <p class="hero-description">
+            I work with firewalls, routing, DNS, VPNs and network troubleshooting. Here I document the problems I solve and the labs I build.
+          </p>''',
+)
+
 # Keep detail pages visible when a table-of-contents anchor is selected.
 s = s.replace(
     ".detail-view:target{\n  visibility:visible;\n  opacity:1;\n  pointer-events:auto;\n  transform:translateY(0);\n}\n",
