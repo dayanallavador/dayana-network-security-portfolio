@@ -13,6 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Prepare website
+        run: python scripts/build_site.py
+
       - name: Deploy to Hostinger via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -27,5 +30,6 @@ jobs:
             **/.git*
             **/.git*/**
             **/.github/**
+            **/scripts/**
             **/node_modules/**
             README.md
