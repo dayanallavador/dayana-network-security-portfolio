@@ -47,6 +47,21 @@ s = s.replace(
     'LATEST TECHNICAL NOTES <span class="list-count">1 note</span>',
 )
 
+# Keep the certifications focused on the credentials that best support the portfolio.
+s = s.replace(
+    '            <div class="cert-card"><strong>CCST<br>Networking</strong><span>Cisco</span><em>✓ Certified</em></div>\n',
+    '',
+)
+s = s.replace(
+    '            <div class="cert-card"><strong>AZ-900</strong><span>Microsoft Azure</span><em>✓ Certified</em></div>\n',
+    '',
+)
+s = s.replace(
+    '.cert-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}\n',
+    '.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}\n',
+    1,
+)
+
 # There is only one real content page in Projects/Notes at the moment, so remove fake pagination.
 s = re.sub(r'\n\s*<nav class="pagination" aria-label="Projects pagination">.*?</nav>', '', s, flags=re.S)
 s = re.sub(r'\n\s*<nav class="pagination" aria-label="Troubleshooting pagination">.*?</nav>', '', s, flags=re.S)
